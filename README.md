@@ -7,6 +7,7 @@ Personal collection of Claude Code skills, packaged as an installable plugin.
 | Skill | Purpose |
 |---|---|
 | `/fran-skills:skill-wizard` | Create new skills from scratch or audit/optimize existing ones against the canonical skills blueprint |
+| `/fran-skills:agent-wizard` | Create new subagents from scratch or audit/optimize existing ones against the canonical agents blueprint |
 | `/fran-skills:quality-code-review` | Deep clean-code review of a specific file, the current branch's commits, or uncommitted changes |
 | `/fran-skills:review-uncommitted` | Quick pre-commit review — lighter and faster than `quality-code-review` |
 | `/fran-skills:seo-content-writer` | SEO blog posts that rank in traditional search and AI engines |
@@ -30,12 +31,13 @@ From a local clone:
 /plugin install /Users/francanete/workspace/skills
 ```
 
-## Authoring new skills
+## Authoring new skills and agents
 
-Use `/fran-skills:skill-wizard` to scaffold or audit skills. The canonical blueprint lives at:
+Use `/fran-skills:skill-wizard` to scaffold or audit skills. Use `/fran-skills:agent-wizard` for subagents. Canonical blueprints:
 
 ```
 skills/skill-wizard/references/skills-blueprint.md
+skills/agent-wizard/references/agents-blueprint.md
 ```
 
 ## Layout

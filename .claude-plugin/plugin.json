@@ -6,6 +6,7 @@
     "name": "francanete"
   },
   "skills": [
+    "./skills/agent-wizard",
     "./skills/copy-writer-expert",
     "./skills/pm-issue",
     "./skills/product-ideas",
