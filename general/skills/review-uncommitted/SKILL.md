@@ -1,12 +1,15 @@
 ---
 name: review-uncommitted
-description: Quick pre-commit review of uncommitted changes. Checks correctness, security, naming, patterns, and consistency. Lighter and faster than quality-code-review.
-allowed-tools: Bash, Read, Glob, Grep, Task
+description: Reviews uncommitted git changes for correctness, security, naming, patterns, and TypeScript quality before committing. Lighter and faster than quality-code-review. Use whenever the user mentions "review my changes", "check before I commit", "look at uncommitted", "pre-commit review", "is this ok to commit", or has staged/unstaged changes they want a quick gate on. Make sure to use this skill any time uncommitted work needs a quality pass — do not default to deep architectural review.
+allowed-tools: Bash, Read, Glob, Grep
 user-invocable: true
 context: fork
+agent: general-purpose
+model: sonnet
+effort: medium
 ---
 
-You are a thorough but efficient code reviewer. The user has uncommitted changes and wants a quick review before committing. This is a pre-commit gate — focus on catching real problems, not deep architectural analysis.
+Pre-commit review of uncommitted changes. Catch real problems quickly; skip deep architectural analysis. Always reviews the full uncommitted diff — any path argument passed by the user is ignored.
 
 ## Workflow
 
@@ -14,19 +17,21 @@ You are a thorough but efficient code reviewer. The user has uncommitted changes
 
 2. **Gather the diff**: Run `git diff` and `git diff --cached` to see all staged and unstaged changes. Run `git status` to understand which files are affected.
 
-3. **Understand the intent**: Read the full diff and determine:
+3. **Stop if no diff**: If both `git diff` and `git diff --cached` are empty, say "No uncommitted changes to review." and exit. Do not proceed.
+
+4. **Understand the intent**: Read the full diff and determine:
    - What is this change trying to accomplish? (bug fix, feature, refactor, etc.)
    - Summarize in 1-2 sentences at the top of your review.
 
-4. **Read surrounding context**: For each changed file, read:
+5. **Read surrounding context**: For each changed file, read:
    - The full file to understand the change in context
    - Imported modules and types to verify correct usage
    - Sibling files to check pattern consistency
    - Related test files if they exist
 
-5. **Focus on changed lines**: Concentrate your review on what actually changed and its immediate context. Only flag pre-existing issues if they directly affect the correctness of the new changes.
+6. **Focus on changed lines**: Concentrate your review on what actually changed and its immediate context. Only flag pre-existing issues if they directly affect the correctness of the new changes.
 
-6. **Review checklist** — evaluate each area and only report issues found:
+7. **Review checklist** — priority order: security > correctness > TypeScript quality > naming > patterns > style. Evaluate each area and only report issues found:
 
    **Correctness**
    - Logic is sound and handles edge cases
@@ -65,7 +70,7 @@ You are a thorough but efficient code reviewer. The user has uncommitted changes
    - Test descriptions are clear
    - Edge cases are covered
 
-7. **Present your review** in this format:
+8. **Present your review** in this format:
 
    ```
    ## Pre-commit Review: [1-2 sentence summary of what the changes do]
@@ -75,9 +80,9 @@ You are a thorough but efficient code reviewer. The user has uncommitted changes
 
    ### Issues
 
-   🔴 **[Critical]** — must fix before committing (bugs, security, data loss)
-   🟡 **[Warning]** — should fix, real quality issue
-   🔵 **[Nit]** — minor, take it or leave it
+   [Critical] — must fix before committing (bugs, security, data loss)
+   [Warning]  — should fix, real quality issue
+   [Nit]      — minor, take it or leave it
 
    For each issue:
    - **File**: `path/to/file.ts:line`
@@ -85,16 +90,14 @@ You are a thorough but efficient code reviewer. The user has uncommitted changes
    - **Fix**: [concrete code suggestion]
 
    ### Verdict
-   ✅ Good to commit / ⚠️ Fix issues first / ❌ Needs rework
+   ready / fix-issues-first / needs-rework
    ```
 
-8. If everything looks clean, say so concisely. Don't invent problems.
+9. If everything looks clean, say so concisely. Don't invent problems.
 
 ## Guidelines
 
 - Be direct. No fluff or excessive praise.
 - Only flag real issues. Working code that follows project conventions is fine.
 - Show actual code fixes, not vague descriptions.
-- Prioritize: security > correctness > TypeScript quality > naming > patterns > style.
-- If the diff is large, use the Task tool with Explore agents to review files in parallel.
 - Never make changes or commits yourself. This is review only.
