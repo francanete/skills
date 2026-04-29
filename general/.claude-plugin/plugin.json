@@ -9,6 +9,10 @@
     "./skills/skill-wizard",
     "./skills/agent-wizard",
     "./skills/quality-code-review",
-    "./skills/review-uncommitted"
+    "./skills/review-uncommitted",
+    "./skills/plan-work"
+  ],
+  "agents": [
+    "./agents/plan-validator"
   ]
 }
