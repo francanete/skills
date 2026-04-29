@@ -1,4 +1,4 @@
-# franc-skills
+# fran-skills
 
 Personal collection of Claude Code skills, packaged as an installable plugin.
 
@@ -6,14 +6,14 @@ Personal collection of Claude Code skills, packaged as an installable plugin.
 
 | Skill | Purpose |
 |---|---|
-| `/franc-skills:skill-wizard` | Create new skills from scratch or audit/optimize existing ones against the canonical skills blueprint |
-| `/franc-skills:quality-code-review` | Deep clean-code review of a specific file, the current branch's commits, or uncommitted changes |
-| `/franc-skills:review-uncommitted` | Quick pre-commit review — lighter and faster than `quality-code-review` |
-| `/franc-skills:seo-content-writer` | SEO blog posts that rank in traditional search and AI engines |
-| `/franc-skills:copy-writer-expert` | Direct-response copy review using Gary Halbert's principles |
-| `/franc-skills:product-ideas` | Generate validated commercial product improvement opportunities |
-| `/franc-skills:pm-issue` | Create a Linear issue from conversation context |
-| `/franc-skills:test-coverage` | Analyze test coverage and suggest test cases |
+| `/fran-skills:skill-wizard` | Create new skills from scratch or audit/optimize existing ones against the canonical skills blueprint |
+| `/fran-skills:quality-code-review` | Deep clean-code review of a specific file, the current branch's commits, or uncommitted changes |
+| `/fran-skills:review-uncommitted` | Quick pre-commit review — lighter and faster than `quality-code-review` |
+| `/fran-skills:seo-content-writer` | SEO blog posts that rank in traditional search and AI engines |
+| `/fran-skills:copy-writer-expert` | Direct-response copy review using Gary Halbert's principles |
+| `/fran-skills:product-ideas` | Generate validated commercial product improvement opportunities |
+| `/fran-skills:pm-issue` | Create a Linear issue from conversation context |
+| `/fran-skills:test-coverage` | Analyze test coverage and suggest test cases |
 
 ## Install
 
@@ -32,7 +32,7 @@ From a local clone:
 
 ## Authoring new skills
 
-Use `/franc-skills:skill-wizard` to scaffold or audit skills. The canonical blueprint lives at:
+Use `/fran-skills:skill-wizard` to scaffold or audit skills. The canonical blueprint lives at:
 
 ```
 skills/skill-wizard/references/skills-blueprint.md
