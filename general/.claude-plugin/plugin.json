@@ -13,6 +13,6 @@
     "./skills/plan-work"
   ],
   "agents": [
-    "./agents/plan-validator"
+    "./agents/plan-validator.md"
   ]
 }
