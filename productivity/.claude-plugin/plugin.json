@@ -1,0 +1,14 @@
+{
+  "name": "fran-productivity",
+  "description": "Productivity skills: SEO writing, direct-response copy review, product ideation, Linear issue creation",
+  "version": "0.1.0",
+  "author": {
+    "name": "francanete"
+  },
+  "skills": [
+    "./skills/seo-content-writer",
+    "./skills/copy-writer-expert",
+    "./skills/product-ideas",
+    "./skills/pm-issue"
+  ]
+}
