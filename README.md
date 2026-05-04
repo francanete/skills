@@ -19,7 +19,7 @@ Personal Claude Code skills, organized into two installable plugins.
 |---|---|
 | `/fran-productivity:seo-content-writer` | SEO blog posts that rank in traditional search and AI engines |
 | `/fran-productivity:copy-writer-expert` | Direct-response copy review using Gary Halbert's principles |
-| `/fran-productivity:product-ideas` | Generate validated commercial product improvement opportunities |
+| `/fran-productivity:generating-product-ideas` | Generate validated commercial product improvement opportunities |
 | `/fran-productivity:pm-issue` | Create a Linear issue from conversation context |
 
 ## Install
@@ -62,6 +62,6 @@ productivity/
 └── skills/
     ├── seo-content-writer/
     ├── copy-writer-expert/
-    ├── product-ideas/
+    ├── generating-product-ideas/
     └── pm-issue/
 ```
